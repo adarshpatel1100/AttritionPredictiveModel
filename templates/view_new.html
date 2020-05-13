@@ -1,0 +1,141 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <center>
+  <div class="navbar-fixed-top">
+    <h2 style="text-align: center;margin-bottom: 25px;"><b>Algorithm Name : {{algorithm}}</b></h2></p>
+    <h2 style="text-align: center;margin-bottom: 25px;"><b>Accuracy : {{accuracy}}%</b></h2><emsp>
+  
+      <!-- <a href="/diagrams"<button type="button" class="btn  btn-info">Diagrams</button></a>
+  <button onclick="window.location.href = '/diagrams';">View Diagrams</button> -->
+  <!-- <button onclick="window.location.href = '/reasons';">Reasons</button>   -->
+
+  <form action="/prediction" enctype="multipart/form-data" method="POST">
+    <label for="predicted"> <b for="predicted"> View the Attrition Prediction : </b></label>
+    <select id="predicted" name="predicted">
+        <option value="Yes">YES</option>
+        <option value="No">NO</option>
+        <!-- <option value="reason">Reason</option> -->
+    </select>
+    <input type="submit" id="upload" value="View" class="btn  btn-info"/>
+  </form>
+  <form action="/diagrams" enctype="multipart/form-data" method="POST">
+    <label for="diagrams"> <b> Visualization : </b></label>
+    <select id="diagrams" name="diagrams">
+        <option value="Bar">Bar Plot</option>
+        <option value="Line">Line Chart</option>
+        <option value="Stacked Bar">Stacked Bar Chart</option>
+    </select>
+    <input type="submit" id="upload" value="View" class="btn  btn-info"/>
+  </form>
+  <form action="/reasons" enctype="multipart/form-data" method="POST">
+    <label for="reasons"> <b> Reasons  &emsp;&emsp; : </b></label>
+    <select id="reasons" name="reasons">
+        <option value="Over Time">Workload/Overworked</option>
+        <option value="Distance From Home">Distance From Home</option>
+        <option value="Job Satisfaction">Job Satisfaction</option>
+        <option value="All">All Reasons</option>
+    </select>
+    <input type="submit" id="upload" value="View" class="btn  btn-info"/>
+  </form>
+
+  <div id="container">
+  <button id="toggle" class="btn  btn-info">Filter</button>
+    <div class="toggle-container hide">
+    <form action="/trail" enctype="multipart/form-data" method="POST">
+      <label for="trail" > <b>For Prediction Yes - Choose Reasons : </b></label>
+      <select id="trail" name="trail">
+          <option value="Age">Age</option>
+          <option value="DistanceFromHome">Distance From Home</option>
+          <option value="Department">Department</option>
+          <option value="BusinessTravel">Business Travel</option>
+          <option value="Education">Education</option>
+          <option value="EducationField">Education Field</option>
+          <option value="Gender">Gender</option>
+          <option value="JobInvolvement">Job Involvement</option>
+          <option value="JobLevel">Job Level</option>
+          <option value="JobRole">Job Role</option>
+          <option value="JobSatisfaction">Job Satisfaction</option>
+          <option value="OverTime">Over Time</option>
+      </select>
+      <select id="compare" name="compare">
+          <option value="Greater Than">Greater Than</option>
+          <option value="Less Than">Less Than</option>
+          <option value="Equal to">Equal to</option>
+      </select>
+      <input type="number" name="numbercount" required>
+      <input type="submit" id="upload" value="View" class="btn  btn-info"/>
+    </form>
+    </div>  
+  </div>  
+  
+    <a href="/pdf"<button type="button" class="btn  btn-info">Generate PDF</button></a>
+  </center>
+
+  <h3 style="text-align: center;">Review Dataset</h3>
+  </div> 
+  <!--<a href="/reasons"  button type="button">Reasons</button></a>-->
+  <div>
+  <table  class="container table table-bordered table-striped table-hover">
+                  <tr>
+
+                  <!-- <th>c1 &nbsp;&nbsp;</th>
+                  <th>c2 &nbsp;&nbsp;</th>
+                  <th>c3 &nbsp;&nbsp;</th>
+                  <th>c4 &nbsp;&nbsp;</th>
+                  <th>c5 &nbsp;&nbsp;</th>
+                  <th>c6 &nbsp;&nbsp;</th>
+                  <th>c7 &nbsp;&nbsp;</th>
+                  <th>c8 &nbsp;&nbsp;</th>
+                  <th>c9 &nbsp;&nbsp;</th>
+                  <th>c10 &nbsp;&nbsp;</th>
+                  <th>c11 &nbsp;&nbsp;</th>
+                  <th>c12 &nbsp;&nbsp;</th>
+                  <th>c13 &nbsp;&nbsp;</th>
+                  <th>c14 &nbsp;&nbsp;</th>
+                  <th>c15 &nbsp;&nbsp;</th>
+                  <th>c16 &nbsp;&nbsp;</th>
+                  <th>c17 &nbsp;&nbsp;</th>
+                  <th>c18 &nbsp;&nbsp;</th>
+                  <th>c19 &nbsp;&nbsp;</th>
+                  <th>c20 &nbsp;&nbsp;</th>
+                  <th>c21 &nbsp;&nbsp;</th>
+                  <th>c22 &nbsp;&nbsp;</th>
+                  <th>c23 &nbsp;&nbsp;</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                {% for value in stocklist%}
+                <tr>
+                  <td>{{ value[0] }}</td>
+                  <td>{{ value[1] }}</td>
+                  <td>{{ value[2] }}</td>
+                  <td>{{ value[3] }}</td>
+                  <td>{{ value[4] }}</td>
+                  <td>{{ value[5] }}</td>
+                  <td>{{ value[6] }}</td>
+                  <td>{{ value[7] }}</td>
+                  <td>{{ value[8] }}</td>
+                  <td>{{ value[9] }}</td>
+                  <td>{{ value[10] }}</td>
+                  <td>{{ value[11] }}</td>
+                  <td>{{ value[12] }}</td>
+                  <td>{{ value[13] }}</td>
+                  <td>{{ value[14] }}</td>
+                  <td>{{ value[15] }}</td>
+                  <td>{{ value[16] }}</td>
+                  <td>{{ value[17] }}</td>
+                  <td>{{ value[18] }}</td>
+                  <td>{{ value[19] }}</td>
+                  <td>{{ value[20] }}</td>
+                  <td>{{ value[21] }}</td>
+                  <td>{{ value[22] }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+</div>
+ <!--<a href="/diagrams" <button type="button">View Diagrams</button>> -->  
+  <script src="../static/js/view_new.js"></script>
+
+{% endblock %}

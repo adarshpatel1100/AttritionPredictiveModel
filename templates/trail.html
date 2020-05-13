@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1 class="word-prediction">Reason: Due to {{reason1}} which are {{compare1}} {{num}}</h1>
+<h3 class="word-a-prediction">Count : {{count}}<h3>
+<h3 class="word-prediction">Details: </h3>
+<table class="container table table-bordered table-striped table-hover">
+    <thead style=" font-weight: normal;">
+        <tr>
+            <th>Age </th>
+            <th>BusinessTravel </th>
+            <th>Department </th>
+            <th>DistanceFromHome </th>
+            <th>Education </th>
+            <th>EducationField </th>
+            <th>Gender </th>
+            <th>JobInvolvement </th>
+            <th>JobLevel </th>
+            <th>JobRole </th>
+            <th>JobSatisfaction </th>
+            <th>MonthlyIncome </th>
+            <th>MonthlyRate </th>
+            <th>OverTime </th>
+            <th>PercentSalaryHike </th>
+            <th>PerformanceRating </th>
+            <th>TotalWorkingYears </th>
+            <th>YearsAtCompany </th>
+            <th>YearsInCurrentRole </th>
+            <th>YearsSinceLastPromotion </th>
+            <th>YearsWithCurrManager </th>
+        </tr>
+
+    </thead>
+    <tbody>
+
+        {% for value in newabc %}
+        <tr>
+            <td>{{ value[0] }}</td>
+            <td>{{ value[1] }}</td>
+            <td>{{ value[2] }}</td>
+            <td>{{ value[3] }}</td>
+            <td>{{ value[4] }}</td>
+            <td>{{ value[5] }}</td>
+            <td>{{ value[6] }}</td>
+            <td>{{ value[7] }}</td>
+            <td>{{ value[8] }}</td>
+            <td>{{ value[9] }}</td>
+            <td>{{ value[10] }}</td>
+            <td>{{ value[11] }}</td>
+            <td>{{ value[12] }}</td>
+            <td>{{ value[13] }}</td>
+            <td>{{ value[14] }}</td>
+            <td>{{ value[15] }}</td>
+            <td>{{ value[16] }}</td>
+            <td>{{ value[17] }}</td>
+            <td>{{ value[18] }}</td>
+            <td>{{ value[19] }}</td>
+            <td>{{ value[20] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table> 
+
+{% endblock %}
+

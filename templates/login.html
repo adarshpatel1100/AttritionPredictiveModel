@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<center>
+	<div class="main_container">
+		<div class="circle">
+			<img src="../static/login.png" width="200px" height="130px">
+		</div>
+		<div class="content">
+		<form action="/log_in" method="POST">
+			<input type="email" name="email" required class="input_content" placeholder="Email Id"><br><br>
+			<input type="password" name="password" required class="input_content" placeholder="Password"><br><br>
+			<input type="submit" name="button" value="Log In" class="input_content_button"><br><br>
+			
+		</form>
+		New <a href="/signup">Sign Up</a>
+		</div>
+	</div>
+	</center>
+	
+{% endblock %}

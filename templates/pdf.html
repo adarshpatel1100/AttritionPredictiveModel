@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table,
+    th,
+    td {
+      border: 2px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 20px;
+    } 
+    
+
+    /* .solid {
+      border:solid black;
+      height: max-content;
+      width: max-content;
+      box-sizing: border-box;
+    } */
+  </style>
+</head>
+
+<body>
+  <img style="float: left;" src="data:image/png;base64,{{img}}" alt="" width="100%" >
+  <br>
+  <p style="font-size: 25px;"><br><br><br><br>Hello {{session['name']}},</p>
+  <p style="font-size: 25px;">&emsp;&emsp;This is the ouput of the given dataset(CSV) provided by you having <b>{{total}} records</b>.</p>
+  <!-- <div class="solid"> -->
+  <center>
+    
+    <table style="width:40%">
+      <tr>
+        <th>Name of the Algorithm </th>
+        <th>Accuracy</th>
+      </tr>
+      <tr>
+        <td>{{ name }}</td>
+        <td>{{accuracy}}</td>
+      </tr>
+    </table>
+    <h2>For Predicted Attrition</h2>
+    <table style="width:40%">
+      <tr>
+        <th>Attrition</th>
+        <th>Count</th>
+        <th>Out of</th>
+        <th>Percentage </th>
+      </tr>
+      <tr>
+        <td>Yes</td>
+        <td>{{yes}}</td>
+        <td>{{total}}</td>
+        <td>{{prediction[0]}} %</td>
+      </tr>
+      <tr>
+        <td>No</td>
+        <td>{{no}}</td>
+        <td>{{total}}</td>
+        <td>{{prediction[1]}} %</td>
+      </tr>
+    </table>
+    <h2 style="border-style: dashed;border: solid black; border-radius: 10px;width: 450px;padding: 3px;
+    margin: 20px;"}>Predicted Attrition Affecting Attributes</h2>
+    <h2>For Age wise</h2>
+    <table style="width: 500px">
+      <tr>
+        <th>Age</th>
+        <th>Count</th>
+        <th>Out of</th>
+        <th>Percentage </th>
+      </tr>
+      <tr>
+        <td>Less than 25</td>
+        <td>{{newage[0]}}</td>
+        <td>{{agelist[0]}}</td>
+        <td>{{perage[0]}} %</td>
+      </tr>
+      <tr>
+        <td>Age>=25 and Age<30 </td>
+        <td>{{newage[1]}}</td>
+        <td>{{agelist[1]}}</td>
+        <td>{{perage[1]}} %</td>
+      </tr>
+      <tr>
+        <td>Age>=30 and Age<35 </td>
+        <td>{{newage[2]}}</td>
+        <td>{{agelist[2]}}</td>
+        <td>{{perage[2]}} %</td>
+      </tr>
+      <tr>
+        <td>Age>=35 and Age<40 </td>
+        <td>{{newage[3]}}</td>
+        <td>{{agelist[3]}}</td>
+        <td>{{perage[3]}} %</td>
+      </tr>
+      <tr>
+        <td>Age>=40</td>
+        <td>{{newage[4]}}</td>
+        <td>{{agelist[4]}}</td>
+        <td>{{perage[4]}} %</td>
+      </tr>
+
+    </table>
+    <h2>For Business Travel wise</h2>
+    <table style="width: 500px">
+      <tr>
+        <th>Business Travel</th>
+        <th>Count</th>
+        <th>Out of</th>
+        <th>Percentage </th>
+      </tr>
+      <tr>
+        <td>Travel Rarely</td>
+        <td>{{newbusiness[0]}}</td>
+        <td>{{businesslist[0]}}</td>
+        <td>{{perbusiness[0]}} %</td>
+      </tr>
+      <tr>
+        <td>Travel Frequently</td>
+        <td>{{newbusiness[1]}}</td>
+        <td>{{businesslist[1]}}</td>
+        <td>{{perbusiness[1]}} %</td>
+      </tr>
+      <tr>
+        <td>Non-Travel</td>
+        <td>{{newbusiness[2]}}</td>
+        <td>{{businesslist[2]}}</td>
+        <td>{{perbusiness[2]}} %</td>
+      </tr>
+    </table>
+    <h2>For Department wise</h2>
+    <table style="width: 500px">
+      <tr>
+        <th>Department</th>
+        <th>Count</th>
+        <th>Out of</th>
+        <th>Percentage </th>
+      </tr>
+      <tr>
+        <td>Sales</td>
+        <td>{{newdepartment[0]}}</td>
+        <td>{{departmentlist[0]}}</td>
+        <td>{{perdepartment[0]}} %</td>
+      </tr>
+      <tr>
+        <td>Research & Development</td>
+        <td>{{newdepartment[1]}}</td>
+        <td>{{departmentlist[1]}}</td>
+        <td>{{perdepartment[1]}} %</td>
+      </tr>
+      <tr>
+        <td>Human Resources</td>
+        <td>{{newdepartment[2]}}</td>
+        <td>{{departmentlist[2]}}</td>
+        <td>{{perdepartment[2]}} %</td>
+      </tr>
+    </table>
+    <h2>For Gender wise</h2>
+    <table style="width: 500px;">
+      <tr>
+        <th>For Gender wise</th>
+        <th>Count</th>
+        <th>Out of</th>
+        <th>Percentage </th>
+      </tr>
+      <tr>
+        <td>Male</td>
+        <td>{{newgender[0]}}</td>
+        <td>{{genderlist[0]}}</td>
+        <td>{{pergender[0]}} %</td>
+      </tr>
+      <tr>
+        <td>Female</td>
+        <td>{{newgender[1]}}</td>
+        <td>{{genderlist[1]}}</td>
+        <td>{{pergender[1]}} %</td>
+      </tr>
+    </table>
+    <footer class="jumbotron text-center mb-0" style="margin-top: 5px;">
+      <div class="container" style="align-items:baseline;">
+          <div>
+              Copyright &copy; 2020 <strong>NASS</strong> All Rights Reserved | Attrition Predictive Model using Machine Learning
+          </div>
+      </div>
+    </footer>
+    <img style="float: left;" src="data:image/png;base64,{{img}}" alt="" width="100%" >
+    <br>
+    <h2 style="margin-top: 125px;">For Job Involvement wise</h2>
+    <table style="width: 500px">
+      <tr>
+        <th>Job Involvement</th>
+        <th>Count</th>
+        <th>Out of</th>
+        <th>Percentage </th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>{{newjobinvolve[0]}}</td>
+        <td>{{jobinvolvelist[0]}}</td>
+        <td>{{perjobinvolve[0]}} %</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>{{newjobinvolve[1]}}</td>
+        <td>{{jobinvolvelist[1]}}</td>
+        <td>{{perjobinvolve[1]}} %</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>{{newjobinvolve[2]}}</td>
+        <td>{{jobinvolvelist[2]}}</td>
+        <td>{{perjobinvolve[2]}} %</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>{{newjobinvolve[3]}}</td>
+        <td>{{jobinvolvelist[3]}}</td>
+        <td>{{perjobinvolve[3]}} %</td>
+      </tr>
+    </table>
+    <h2>For Job Role wise</h2>
+    <table style="width: 500px">
+      <tr>
+        <th>Job Role</th>
+        <th>Count</th>
+        <th>Out of</th>
+        <th>Percentage </th>
+      </tr>
+      <tr>
+        <td>Sales Executive</td>
+        <td>{{newjobrole[0]}}</td>
+        <td>{{jobrolelist[0]}}</td>
+        <td>{{perjobrole[0]}} %</td>
+      </tr>
+      <tr>
+        <td>Research Scientist</td>
+        <td>{{newjobrole[1]}}</td>
+        <td>{{jobrolelist[1]}}</td>
+        <td>{{perjobrole[1]}} %</td>
+      </tr>
+      <tr>
+        <td>Laboratory Technician</td>
+        <td>{{newjobrole[2]}}</td>
+        <td>{{jobrolelist[2]}}</td>
+        <td>{{perjobrole[2]}} %</td>
+      </tr>
+      <tr>
+        <td>Healthcare Representative</td>
+        <td>{{newjobrole[3]}}</td>
+        <td>{{jobrolelist[3]}}</td>
+        <td>{{perjobrole[3]}} %</td>
+      </tr>
+      <tr>
+        <td>Manager</td>
+        <td>{{newjobrole[4]}}</td>
+        <td>{{jobrolelist[4]}}</td>
+        <td>{{perjobrole[4]}} %</td>
+      </tr>
+      <tr>
+        <td>Sales Representative</td>
+        <td>{{newjobrole[5]}}</td>
+        <td>{{jobrolelist[5]}}</td>
+        <td>{{perjobrole[5]}} %</td>
+      </tr>
+      <tr>
+        <td>Research Director</td>
+        <td>{{newjobrole[6]}}</td>
+        <td>{{jobrolelist[6]}}</td>
+        <td>{{perjobrole[6]}} %</td>
+      </tr>
+      <tr>
+        <td>Manufacturing Director</td>
+        <td>{{newjobrole[7]}}</td>
+        <td>{{jobrolelist[7]}}</td>
+        <td>{{perjobrole[7]}} %</td>
+      </tr>
+      <tr>
+        <td>Human Resources</td>
+        <td>{{newjobrole[8]}}</td>
+        <td>{{jobrolelist[8]}}</td>
+        <td>{{perjobrole[8]}} %</td>
+      </tr>
+    </table>
+    <h2>For Job Satisfaction wise</h2>
+    <table style="width: 500px">
+      <tr>
+        <th>Job Satisfaction</th>
+        <th>Count</th>
+        <th>Out of</th>
+        <th>Percentage </th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>{{newjobsatisfy[0]}}</td>
+        <td>{{jobsatisfylist[0]}}</td>
+        <td>{{perjobsatisfy[0]}} %</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>{{newjobsatisfy[1]}}</td>
+        <td>{{jobsatisfylist[1]}}</td>
+        <td>{{perjobsatisfy[1]}} %</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>{{newjobsatisfy[2]}}</td>
+        <td>{{jobsatisfylist[2]}}</td>
+        <td>{{perjobsatisfy[2]}} %</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>{{newjobsatisfy[3]}}</td>
+        <td>{{jobsatisfylist[3]}}</td>
+        <td>{{perjobsatisfy[3]}} %</td>
+      </tr>
+    </table>
+    <h2>For Over Time wise</h2>
+    <table style="width: 500px;">
+      <tr>
+        <th>Over Time</th>
+        <th>Count</th>
+        <th>Out of</th>
+        <th>Percentage </th>
+      </tr>
+      <tr>
+        <td>Yes</td>
+        <td>{{newover[0]}}</td>
+        <td>{{overlist[0]}}</td>
+        <td>{{perover[0]}} %</td>
+      </tr>
+      <tr>
+        <td>No</td>
+        <td>{{newover[1]}}</td>
+        <td>{{overlist[1]}}</td>
+        <td>{{perover[1]}} %</td>
+      </tr>
+    </table>
+    <!-- <img style="float: left;align-self:flex-end;" src="data:image/png;base64,{{imgfoot}}" alt="" width="100%" > -->
+    <footer class="jumbotron text-center mb-0" style="margin-top: 5px;">
+      <div class="container" style="align-items:baseline;">
+          <div>
+              Copyright &copy; 2020 <strong>NASS</strong> All Rights Reserved | Attrition Predictive Model using Machine Learning
+          </div>
+      </div>
+    </footer>
+    <!-- <h1>Name of The Algorithm : {{ name }}</h1>
+    <h1>Accuracy is : {{accuracy}}</h1>
+    <h1>Predicted Attrition Yes Count :{{yes}} out of {{total}}</h1>
+    <h1>Predicted Attrition No Count :{{no}} out of {{total}}</h1>
+    <h1>Attrition Prediction Yes</h1>
+    
+    <h1>For Business Travel</h1>
+    <h2>Travel Rarely : {{newbusiness[0]}} out of {{businesslist[0]}} &emsp; <b>Percentage : {{perbusiness[0]}}</b></h2>
+    <h2>Travel Frequently : {{newbusiness[1]}} out of {{businesslist[1]}} &emsp; <b>Percentage : {{perbusiness[1]}}</b></h2>
+    <h2>Non-Travel : {{newbusiness[2]}} out of {{businesslist[2]}} &emsp; <b>Percentage : {{perbusiness[2]}}</b></h2>
+    <h1>For Department</h1>
+    <h2>Sales : {{newdepartment[0]}} out of {{departmentlist[0]}} &emsp; <b>Percentage : {{perdepartment[0]}}</b></h2>
+    <h2>Research & Development : {{newdepartment[1]}} out of {{departmentlist[1]}} &emsp; <b>Percentage : {{perdepartment[1]}}</b></h2>
+    <h2>Human Resources : {{newdepartment[2]}} out of {{departmentlist[2]}} &emsp; <b>Percentage : {{perdepartment[2]}}</b></h2> -->
+  </center>
+  <!-- </div> -->
+</body>
+
+</html>

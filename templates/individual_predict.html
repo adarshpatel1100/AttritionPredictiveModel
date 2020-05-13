@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1 class="word-individual">Algorithm Name : {{algorithm_individual}}</h1><br>
+    <center>
+    <table class="table-individual">
+    <tr>
+        <td class="table-individual"> Age</td> 
+        <td class="table-individual"> {{age}}</td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Business Travel </td> 
+        <td class="table-individual"> {{businesstravel}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual">Department</td> 
+        <td class="table-individual">{{department}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual">Distance From Home</td> 
+        <td class="table-individual">{{distancefromhome}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Education </td> 
+        <td class="table-individual"> {{education}}</td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Education Field  </td> 
+        <td class="table-individual"> {{educationfield}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Gender </td> 
+        <td class="table-individual"> {{gender}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual">  Job Involvment   </td> 
+        <td class="table-individual">  {{jobinvolvment}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Job Level   </td> 
+        <td class="table-individual">   {{joblevel}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Job Role   </td> 
+        <td class="table-individual">  {{jobrole}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Job Satisfaction </td> 
+        <td class="table-individual">  {{jobsatisfaction}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Monthly Salary  </td> 
+        <td class="table-individual">   ${{monthlyincome}}</td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Monthly Rate  </td> 
+        <td class="table-individual"> $ {{monthlyrate}}  </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> OverTime   </td> 
+        <td class="table-individual"> {{overtime}}  </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Percentage Salary Hike </td> 
+        <td class="table-individual"> {{percentsalaryhike}} % </td>
+    </tr>
+    <tr>
+        <td class="table-individual">Performance Rating </td> 
+        <td class="table-individual">  {{performancerating}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Total Working Years </td> 
+        <td class="table-individual"> {{totalworkingyears}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Years At Company  </td> 
+        <td class="table-individual"> {{yearsatcompany}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Years in Current Role </td> 
+        <td class="table-individual"> {{yearsincurrentrole}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Years Scinnce Last Promotion </td> 
+        <td class="table-individual">  {{yearssincelastpromotion}} </td>
+    </tr>
+    <tr>
+        <td class="table-individual"> Years with Current Manager  </td> 
+        <td class="table-individual"> {{yearswithcurrmanager}} </td>
+    </tr>
+</table>
+</center>
+<h1 class="word-individual">Prediction : {{pred}}</h1>
+{% endblock %} 

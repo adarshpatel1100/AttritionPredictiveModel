@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Attriton Predictive Model</title>
+        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+  <body style="background-image:url('../static/waves.png');">
+    <section id="nav-bar">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><img src="../static/Logo.png" width="200" height="200"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/newindex">Prediction</a>
+            </li>
+            {% if 'user' in session %}
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>  
+            <br>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Hello {{session['name']}}</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            </div>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <!-- Alerts -->
+    <div class="container">
+      {% with messages = get_flashed_messages(with_categories = true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+          <span>{{ message }}</span>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </div>
+
+    {% block body %}
+    {% endblock %}
+
+
+    <footer class="jumbotron text-center mb-0">
+      <div class="container">
+          <div>
+              Copyright &copy; 2020 <strong>APM Inc.</strong> All Rights Reserved | Attrition Predictive Model using Machine Learning
+          </div>
+      </div>
+    </footer>
+  </body>
+</html>  

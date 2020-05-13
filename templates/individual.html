@@ -1,0 +1,148 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    
+    <div class="bs-example">
+    <form action="/individual_predict" method="post" style="padding-top:1%; padding-left:5%;">
+        <div class="form-group row">
+            <label for="age" class="col-sm-2 col-form-label">Age : </label>
+            <input type="number" name="age" class="form-control col-sm-2"  required>
+        </div>
+        <div class="form-group row">
+        <label for="businesstravel" class="col-sm-2 col-form-label">Business Travel : </label>
+        <select id="businesstravel" name="businesstravel" class="form-control col-sm-2">
+            <option value="1">Travel Rarely</option>
+            <option value="2">Travel Frequently</option>
+            <option value="3">Non-Travel</option>
+        </select>
+        </div>
+        <div class="form-group row">
+        <label for="department" class="col-sm-2 col-form-label">Department : </label>
+        <select id="department" name="department"  class="form-control col-sm-2">
+            <option value="1">Sales</option>
+            <option value="2">Research & Development</option>
+            <option value="3">Human Resources</option>
+        </select>
+        </div>
+        <div class="form-group row">
+        <label for="distancefromhome" class="col-sm-2 col-form-label">Distance From Home</label>
+        <input type="number" name="distancefromhome" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="education"  class="col-sm-2 col-form-label">Education : </label>
+        <select id="education" name="education" class="form-control col-sm-2">
+            <option value="1">Below College</option>
+            <option value="2">College</option>
+            <option value="3">Bachelor</option>
+            <option value="4">Master</option>
+            <option value="5">Doctor</option>
+        </select>
+        </div>
+        <div class="form-group row">
+        <label for="educationfield" class="col-sm-2 col-form-label">Education Field : </label>
+        <select id="educationfield" name="educationfield" class="form-control col-sm-2">
+            <option value="1">Medical</option>
+            <option value="2">Life Sciences</option>
+            <option value="3">Other</option>
+            <option value="4">Marketing</option>
+            <option value="5">Technical Degree</option>
+            <option value="6">Human Resources</option>
+        </select>
+        </div>
+        <div class="form-group row">
+        <label for="gender" class="col-sm-2 col-form-label">Gender : </label>
+        <select id="gender" name="gender" class="form-control col-sm-2">
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+        </select>
+        </div>
+        <div class="form-group row">
+        <label for="jobinvolvment" class="col-sm-2 col-form-label">Job Involvement :</label>
+        <input type="number" name="jobinvolvment" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="joblevel" class="col-sm-2 col-form-label">Job Level :</label>
+        <input type="number" name="joblevel" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="jobrole" class="col-sm-2 col-form-label">Job Role :</label>
+        <select id="jobrole" name="jobrole" class="form-control col-sm-2">
+            <option value="1">Sales Executive</option>
+            <option value="2">Research Scientist</option>
+            <option value="3">Laboratory Technician</option>
+            <option value="4">Healthcare Representative</option>
+            <option value="5">Manager</option>
+            <option value="6">Sales Representative</option>
+            <option value="7">Research Director</option>
+            <option value="8">Manufacturing Director</option>
+            <option value="9">Human Resources</option>
+        </select>
+        </div>
+        <div class="form-group row">
+        <label for="jobsatisfaction" class="col-sm-2 col-form-label">Job Satisfaction :</label>
+        <input type="number" name="jobsatisfaction" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="monthlyincome" class="col-sm-2 col-form-label">Monthly Income : </label>
+        <input type="number" name="monthlyincome" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="monthlyrate" class="col-sm-2 col-form-label">Monthly Rate : </label>
+        <input type="number" name="monthlyrate" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="overtime" class="col-sm-2 col-form-label">Over Time : </label>
+        <select id="overtime" name="overtime" class="form-control col-sm-2">
+            <option value="1">Yes</option>
+            <option value="2">No</option>
+        </select>
+        </div>
+        <div class="form-group row">
+        <label for="percentsalaryhike" class="col-sm-2 col-form-label">Percent Salary Hike :</label>
+        <input type="number" name="percentsalaryhike" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="performancerating" class="col-sm-2 col-form-label">Performance Rating :</label>
+        <input type="number" name="performancerating" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="totalworkingyears" class="col-sm-2 col-form-label">Total Working Years :</label>
+        <input type="number" name="totalworkingyears" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="yearsatcompany" class="col-sm-2 col-form-label">Years At Company : </label>
+        <input type="number" name="yearsatcompany" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="yearsincurrentrole" class="col-sm-2 col-form-label">Yearsin Current Role :</label>
+        <input type="number" name="yearsincurrentrole" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="yearssincelastpromotion" class="col-sm-2 col-form-label">Years Since Last Promotion :</label>
+        <input type="number" name="yearssincelastpromotion" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="yearswithcurrmanager" class="col-sm-2 col-form-label">Years with Current Manager : </label>
+        <input type="number" name="yearswithcurrmanager" class="form-control col-sm-2" required>
+        </div>
+        <div class="form-group row">
+        <label for="algorithm" class="col-sm-2 col-form-label">Choose the Algorithm : </label>
+        <select id="algoithm" name="algorithm" class="form-control col-sm-2">
+            <option value="K-Nearest Neighbors Algorithm">K-Nearest Neighbors Algorithm</option>
+            <option value="Support Vector Machine">Support Vector Machine</option>
+            <option value="Random Forest">Random Forest</option>
+            <option value="Decision Tree">Decision Tree</option>
+        </select>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10 offset-sm-2">
+                <input type="submit" id=upload class="btn  btn-info" value="Submit">
+                
+            </div>
+        </div>
+        
+    </div>
+    </form>
+    </div>
+    
+{% endblock %}   

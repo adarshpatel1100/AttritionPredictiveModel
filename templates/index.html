@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <!-- Select file to read <input type="file" id="file1" onchange="loadFile(this)">
+  <a href="/model_predict"<button type="button">Predict Model</button> -->
+  <!-- <div style="padding-top: 5%; text-align: center;"> -->
+    <form action="/model_predict" enctype="multipart/form-data" method="POST" style="text-align:center; padding-top:5%;">
+      <input  type="file" id="file1" name="file1" class="word-index"  onchange="loadFile(this)" required /> 
+      <label for="algo" class="word-index" ><b> Choose the Algorithm :</b></label>
+       <select id="algo" name="algo" class="option">
+        <option value="K-Nearest Neighbors Algorithm">K-Nearest Neighbors Algorithm</option>
+        <option value="Support Vector Machine">Support Vector Machine</option>
+        <option value="Random Forest">Random Forest</option>
+        <option value="Decision Tree">Decision Tree</option>
+       </select>
+      &nbsp  &nbsp
+      <input type="submit" id="upload" value="Upload" class="btn  btn-info"/>
+      &nbsp  &nbsp
+      <label class="word"><b>Number of records : <label id="demo">0</label></b></label>
+    </form>
+  <br>  
+  <!-- </div> -->
+  <pre  id="data"><p style="font-size: 4cm; opacity: 20%;font-family:Courier;letter-spacing: 20px; text-align:center; width: auto;">No Data</p></pre>
+  <script src="../static/js/index.js"></script>
+
+{% endblock %}
